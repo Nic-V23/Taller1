@@ -29,3 +29,4 @@ fun reiniciarTablero(): List<Int> {
     return tablero
 }
 
+
