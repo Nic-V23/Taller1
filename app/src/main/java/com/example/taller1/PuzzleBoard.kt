@@ -30,3 +30,4 @@ fun reiniciarTablero(): List<Int> {
 }
 
 
+
