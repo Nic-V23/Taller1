@@ -12,11 +12,13 @@ class MainActivity : ComponentActivity() {
         setContent {
             MaterialTheme {
                 Surface {
-                    // Aquí irá tu tablero cuando lo conectes
+
                 }
             }
         }
     }
 }
+
+
 
 
