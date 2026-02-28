@@ -28,3 +28,4 @@ fun reiniciarTablero(): List<Int> {
     } while (!esSolucionable(tablero))
     return tablero
 }
+
