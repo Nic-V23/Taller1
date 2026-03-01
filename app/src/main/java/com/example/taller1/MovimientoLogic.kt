@@ -22,4 +22,16 @@ fun sonAdyacentes(indice1: Int, indice2: Int): Boolean {
     return(mismaFila && columnaDiferencia == 1) || (mismaColumna && filaDiferencia == 1)
 }
 
+fun realizarMovimiento(tablero: List<Int>, indice1: Int,indice2: Int): List<Int>?{
 
+    if(!sonAdyacentes(indice1,indice2)){
+        return null
+    }
+
+    val tableroNuevo = tablero.toMutableList()
+    val temp = tableroNuevo[indice1]
+    tableroNuevo[indice1] = tableroNuevo[indice2]
+    tableroNuevo[indice2] = temp
+
+    return tableroNuevo
+}
