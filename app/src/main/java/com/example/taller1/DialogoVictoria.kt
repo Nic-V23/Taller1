@@ -60,7 +60,6 @@ fun VictoriaDialog(
 
                 Spacer(modifier = Modifier.height(20.dp))
 
-
                 EstadisticaFila(
                     etiqueta = "Tus movimientos",
                     valor = movimientosRealizados.toString(),

@@ -10,7 +10,6 @@ fun estaResuelto(tablero: List<Int>): Boolean {
     return tablero == TABLERO_RESUELTO
 }
 
-
 fun calcularMetaMinima(tableroInicial: List<Int>): Int {
 
 
