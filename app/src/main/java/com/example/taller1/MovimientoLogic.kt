@@ -35,3 +35,13 @@ fun realizarMovimiento(tablero: List<Int>, indice1: Int,indice2: Int): List<Int>
 
     return tableroNuevo
 }
+
+fun contadorMovimientos(actual: Int, exitoso: Boolean): Int{
+
+    if(exitoso){
+        return actual + 1
+    }else{
+        return actual
+    }
+
+}
