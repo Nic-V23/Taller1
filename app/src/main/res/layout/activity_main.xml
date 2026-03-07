@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="24dp"
+    android:background="#F0F4FF">
+
+    <TextView
+        android:id="@+id/tvTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Puzzle Deslizante"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="#1A237E"
+        android:layout_marginBottom="16dp" />
+
+    <TextView
+        android:id="@+id/tvMovimientos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Movimientos: 0"
+        android:textSize="18sp"
+        android:textColor="#3949AB"
+        android:layout_marginBottom="24dp" />
+
+    <GridLayout
+        android:id="@+id/gridTablero"
+        android:layout_width="320dp"
+        android:layout_height="320dp"
+        android:columnCount="3"
+        android:rowCount="3"
+        android:layout_marginBottom="32dp">
+
+
+
+        <TextView
+            android:id="@+id/celda0"
+            style="@style/CeldaPuzzle" />
+
+
+        <TextView
+            android:id="@+id/celda1"
+            style="@style/CeldaPuzzle" />
+
+
+        <TextView
+            android:id="@+id/celda2"
+            style="@style/CeldaPuzzle" />
+
+
+        <TextView
+            android:id="@+id/celda3"
+            style="@style/CeldaPuzzle" />
+
+
+        <TextView
+            android:id="@+id/celda4"
+            style="@style/CeldaPuzzle" />
+
+
+        <TextView
+            android:id="@+id/celda5"
+            style="@style/CeldaPuzzle" />
+
+
+        <TextView
+            android:id="@+id/celda6"
+            style="@style/CeldaPuzzle" />
+
+
+        <TextView
+            android:id="@+id/celda7"
+            style="@style/CeldaPuzzle" />
+
+        <TextView
+            android:id="@+id/celda8"
+            style="@style/CeldaPuzzle" />
+
+    </GridLayout>
+
+
+    <Button
+        android:id="@+id/btnReiniciar"
+        android:layout_width="200dp"
+        android:layout_height="52dp"
+        android:text="Reiniciar"
+        android:textSize="16sp"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#3949AB"
+        android:stateListAnimator="@null" />
+
+
+
+</LinearLayout>
