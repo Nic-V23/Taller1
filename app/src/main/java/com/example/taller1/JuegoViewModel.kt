@@ -39,5 +39,26 @@ class JuegoViewModel : ViewModel() {
         }
     }
 
+    fun realizarMovimiento(nuevoTablero: List<Int>) {
+        val movimientosActualizados = _estado.value.movimientos + 1
+        val gano = estaResuelto(nuevoTablero)
 
+        _estado.value = _estado.value.copy(
+            tablero = nuevoTablero,
+            movimientos = movimientosActualizados,
+            juegoGanado = gano
+        )
+    }
+
+
+    fun jugarDeNuevo(nuevoTablero: List<Int>) {
+        iniciarPartida(nuevoTablero)
+    }
+
+
+    fun cerrarDialogo() {
+        _estado.value = _estado.value.copy(juegoGanado = false)
+    }
 }
+
+
