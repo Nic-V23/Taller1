@@ -55,7 +55,6 @@ class JuegoViewModel : ViewModel() {
         iniciarPartida(nuevoTablero)
     }
 
-
     fun cerrarDialogo() {
         _estado.value = _estado.value.copy(juegoGanado = false)
     }
