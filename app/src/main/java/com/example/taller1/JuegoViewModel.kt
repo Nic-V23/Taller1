@@ -8,7 +8,6 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-
 data class EstadoJuego(
     val tablero: List<Int> = listOf(1, 2, 3, 4, 5, 6, 7, 8, 0),
     val movimientos: Int = 0,
