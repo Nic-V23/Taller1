@@ -50,7 +50,6 @@ class JuegoViewModel : ViewModel() {
         )
     }
 
-
     fun jugarDeNuevo(nuevoTablero: List<Int>) {
         iniciarPartida(nuevoTablero)
     }
