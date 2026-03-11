@@ -34,18 +34,15 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun PuzzleScreen() {
-    // YARITZA — genera el tablero aleatorio solucionable
     var tablero by remember { mutableStateOf(reiniciarTablero()) }
     var tableroInicial by remember { mutableStateOf(tablero) }
     var movimientos by remember { mutableIntStateOf(0) }
     var juegoGanado by remember { mutableStateOf(false) }
 
-    // PIPE — calcula la meta mínima al inicio
     val metaMinima = remember(tableroInicial) {
         calcularMetaMinima(tableroInicial)
     }
 
-    // NICOLAS — lógica de movimiento al hueco
     fun moverPieza(indice: Int) {
         if (juegoGanado) return
         val posVacia = tablero.indexOf(0)
@@ -62,16 +59,14 @@ fun PuzzleScreen() {
             nuevo[posVacia] = nuevo[indice]
             nuevo[indice] = 0
             tablero = nuevo
-            // NICOLAS — incrementa contador
             movimientos = contadorMovimientos(movimientos, exitoso = true)
-            // PIPE — verifica si ganó
+
             if (estaResuelto(tablero)) {
                 juegoGanado = true
             }
         }
     }
 
-    // PIPE — diálogo de victoria con meta mínima
     if (juegoGanado) {
         VictoriaDialog(
             movimientosRealizados = movimientos,
@@ -110,7 +105,6 @@ fun PuzzleScreen() {
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        // NICOLAS — contador UI
         ContadorUI(movimientos)
 
         Spacer(modifier = Modifier.height(8.dp))
@@ -123,7 +117,6 @@ fun PuzzleScreen() {
 
         Spacer(modifier = Modifier.height(24.dp))
 
-        // YARITZA — tablero visual
         Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
             for (fila in 0..2) {
                 Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
@@ -161,7 +154,6 @@ fun PuzzleScreen() {
 
         Spacer(modifier = Modifier.height(32.dp))
 
-        // NICOLAS — botón reiniciar
         BotonesUI(onReiniciar = {
             val nuevo = reiniciarTablero()
             tablero = nuevo
