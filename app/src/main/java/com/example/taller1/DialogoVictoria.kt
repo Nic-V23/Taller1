@@ -18,9 +18,9 @@ import androidx.compose.ui.window.Dialog
 private fun colorSegunEficiencia(realizados: Int, meta: Int): Color {
     val diferencia = realizados - meta
     return when {
-        diferencia == 0    -> Color(0xFF2E7D32)   // Verde oscuro
-        diferencia in 1..5 -> Color(0xFFF9A825)   // Amarillo ámbar
-        else               -> Color(0xFFC62828)   // Rojo oscuro
+        diferencia == 0    -> Color(0xFF2E7D32)
+        diferencia in 1..5 -> Color(0xFFF9A825)
+        else               -> Color(0xFFC62828)
     }
 }
 
