@@ -1,5 +1,3 @@
-package com.example.taller1
-
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -7,7 +5,8 @@ import kotlinx.coroutines.flow.asStateFlow
 
 class PuzzleViewModel : ViewModel() {
 
-    private val _tablero = MutableStateFlow<List<Int>>(reiniciarTablero())
+
+    private val _tablero = MutableStateFlow(reiniciarTablero())
     val tablero: StateFlow<List<Int>> = _tablero.asStateFlow()
 
     private val _celdaSeleccionada = MutableStateFlow<Int?>(null)
@@ -19,51 +18,36 @@ class PuzzleViewModel : ViewModel() {
     private val _juegoGanado = MutableStateFlow(false)
     val juegoGanado: StateFlow<Boolean> = _juegoGanado.asStateFlow()
 
-    private val _metaMinima = MutableStateFlow(0)
-    val metaMinima: StateFlow<Int> = _metaMinima.asStateFlow()
-
-    var tableroInicial: List<Int> = _tablero.value
-        private set
-
     fun seleccionarCelda(indice: Int) {
-        if (_juegoGanado.value) return
+        val primera = _celdaSeleccionada.value
 
-        val seleccionPrevia = _celdaSeleccionada.value
-
-        if (seleccionPrevia == null) {
+        if (primera == null) {
             _celdaSeleccionada.value = indice
         } else {
-            if (seleccionPrevia == indice) {
+            if (primera == indice) {
                 _celdaSeleccionada.value = null
                 return
             }
 
-            val tableroActual = _tablero.value
-            val nuevoTablero = realizarMovimiento(tableroActual, seleccionPrevia, indice)
+            val nuevoTablero = realizarMovimiento(_tablero.value, primera, indice)
 
             if (nuevoTablero != null) {
+                _movimientos.value = contadorMovimientos(_movimientos.value, true)
                 _tablero.value = nuevoTablero
-                _movimientos.value = contadorMovimientos(_movimientos.value, exitoso = true)
-
-                if (estaResuelto(nuevoTablero)) {
-                    _metaMinima.value = calcularMetaMinima(tableroInicial)
-                    _juegoGanado.value = true
-                }
+                _juegoGanado.value = (nuevoTablero == TABLERO_RESUELTO)
             } else {
+                _movimientos.value = contadorMovimientos(_movimientos.value, false)
                 _celdaSeleccionada.value = indice
                 return
             }
+
             _celdaSeleccionada.value = null
         }
     }
-
     fun reiniciar() {
-        val nuevoTablero = reiniciarTablero()
-        tableroInicial = nuevoTablero
-        _tablero.value = nuevoTablero
+        _tablero.value = reiniciarTablero()
         _celdaSeleccionada.value = null
         _movimientos.value = 0
         _juegoGanado.value = false
-        _metaMinima.value = 0
     }
 }
