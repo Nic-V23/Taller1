@@ -3,7 +3,7 @@ package com.example.taller1
 import java.util.LinkedList
 
 
-private val TABLERO_RESUELTO = listOf(1, 2, 3, 4, 5, 6, 7, 8, 0)
+val TABLERO_RESUELTO = listOf(1, 2, 3, 4, 5, 6, 7, 8, 0)
 
 
 fun estaResuelto(tablero: List<Int>): Boolean {
